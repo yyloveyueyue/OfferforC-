@@ -1,23 +1,42 @@
-#include<stdio.h>
-char *a =" you";
-char b[ ] =" Welcome you to China!" ;
+#include <iostream>
+#include <string>
+#include <vector>
+#include "stdio.h"
+#include<sstream>
+#include <cstring> 
+using namespace std;
+
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        if(k == 0 || k == 1)    return 0;
+        int l = 0,sum = 0,res = 1;
+        for(int r=0;r<nums.size();++r){
+            res *= nums[r];
+            while(res >= k){
+                res /= nums[l];
+                l++;
+            }
+            sum += (r-l+1);
+        }
+        return sum;
+    }
+
+
 int main()
 {
-    int i,j=0; char * p;
-    for(i=0;b[ i ] ! ='\0';i + + ) 
-    { 
-        if ( * a = = b[ i ] )
-        { 
-            p=a;
-            for(j=i;*p!='\0';j+ +)
-            {
-                if(*p! = b[ j ]) break;
-                p++ ;
-            }
-            if(*p= ='\0'){
-                break;
-            }
-   }
-   printf("%s",& b[ i ] );
-   return 0;
-｝
+    string s;
+    vector<int> v;
+    getline(cin, s);
+    istringstream is(s);
+    int inter;
+    char ch;
+    while (is >> inter)
+    {
+         v.push_back(inter);
+         is >> ch;
+    }
+    int k = 0;
+    cin >> k;
+    int result1 = numSubarrayProductLessThanK(v, k);
+    cout << result1;
+    return 0;
+}
