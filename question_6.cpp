@@ -77,4 +77,6 @@ BinaryTreeNode *ConstructCore(int *startPre, int *endPre, int *startIno, int *en
         root->m_right = ConstructCore(leftPreEnd + 1, endPre, rootInorder + 1, endIno);
     }
     return root;
+    
+    
 }
