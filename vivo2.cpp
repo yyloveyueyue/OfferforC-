@@ -66,13 +66,13 @@ int main()
 	char *p;
 	const char* strs = str.c_str();
 	
-	p = strtok((char *)strs, " ");
+	p = strtok((char *)strs, ",");
 	N = atoi(p);
 
 	p = strtok(NULL, " ");
 	M = atoi(p);
-	
-	solution(N, M);
+    cout << N << M;
+    // solution(N, M);
 	
 	return 0;
 }
